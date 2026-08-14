@@ -50,10 +50,10 @@
 
  <p>\[{\widetilde{\phi}(k,t)} = 1/\sqrt{2\pi}\int{\phi(x,t)e^{-ikx}}dx\] <p>
 
- <p>Since \(\partial_xe^{-ikx} = -ik)\ the lagrangian density becomes: <p>
+ <p>Since \(\partial_xe^{-ikx} = -ik\) the lagrangian density becomes: <p>
  <p>\[\mathcal{L} = -1/2\frac{\partial\widetilde{\phi(k,t)}}{\partial t}  +k^2\widetilde{\phi}(k,t)^2\] <p>
 
- <p>Surprisingly this is just the lagrangian for the harmonic osscilator. It is often said quantum field theory implies a harmonic osscilator at every point in space. Since we have taken a fourier transform it is better to say there is one for each mode, or each point in 'momentum space'. For brevity we simply quote the result from quantum mechanics that a harmonic osscilator has energies  \(E_n = n\hbar(\omega +1/2) )\ and that we can add a quanta of energy to a state by acting on it with a creation operator  \(a \) and remove one with an annihilation operator  \(a^* \), where the star means the hermitean conjugate of.  <p> <p>These operators obey commutation relations and their product is the energy level n <p>
+ <p>Surprisingly this is just the lagrangian for the harmonic osscilator. It is often said quantum field theory implies a harmonic osscilator at every point in space. Since we have taken a fourier transform it is better to say there is one for each mode, or each point in 'momentum space'. For brevity we simply quote the result from quantum mechanics that a harmonic osscilator has energies  \(E_n = n\hbar(\omega +1/2) \)  and that we can add a quanta of energy to a state by acting on it with a creation operator  \(a \) and remove one with an annihilation operator  \(a^* \), where the star means the hermitean conjugate of.  <p> <p>These operators obey commutation relations and their product is the energy level n <p>
 
  <p>\[[a^*,a] = 1\] <p>
  <p>\[a^*a = n\] <p>
@@ -79,7 +79,7 @@
 
 
 
- <p>In quantum field theory, we interpret  \(a)\ as adding a quantum of energy, or particle, to a mode in the field.  <p> <p>We will model n photons in the presence of one atom. The quantum state \({\displaystyle |n,0\rangle })\ will denote n photons and the atom in its ground state and the state \({\displaystyle |n,1\rangle })\ will denote n photons and the atom in its excited state. Here we will only consider one atomic transition and will let the n photons be in the mode with the right wavelength for that transition. If we let \(\mathcal{O})\ be the operator that takes the atom from the ground to excited state the amplitude for excitation is: <p>
+ <p>In quantum field theory, we interpret  \(a\) as adding a quantum of energy, or particle, to a mode in the field.  <p> <p>We will model n photons in the presence of one atom. The quantum state \({\displaystyle |n,0\rangle }\) will denote n photons and the atom in its ground state and the state \({\displaystyle |n,1\rangle }\) will denote n photons and the atom in its excited state. Here we will only consider one atomic transition and will let the n photons be in the mode with the right wavelength for that transition. If we let \(\mathcal{O}\) be the operator that takes the atom from the ground to excited state the amplitude for excitation is: <p>
 
  <p> \[ \mathcal{A}_e= {\displaystyle \langle n-1,1| }a^*\mathcal{O}{\displaystyle |n,0\rangle }\] <p>
  <p>\[{\displaystyle \langle n-1| }a^*{\displaystyle |n\rangle }{\displaystyle \langle 1| }\mathcal{O}{\displaystyle |0\rangle }\] <p>
@@ -89,125 +89,8 @@
  <p>\[ \mathcal{A}_d= {\displaystyle \langle n+1,0| }a\mathcal{O^*}{\displaystyle |n,1\rangle }\] <p>
  <p>\[{\displaystyle \langle n+1| }a{\displaystyle |n\rangle }{\displaystyle \langle 0| }\mathcal{O^*}{\displaystyle |1\rangle }\] <p>
 
-    <!-- INSTRUCTIONS FOR YOU -->
-    <!-- WRITE A SECTION USING THE <h2> TAG-->
-    <!-- WRITE A SUBSECTION USING THE <h4> TAG -->
-    <!-- WRITE A PARAGRAPH USING THE <p> TAG -->
-    <!-- INLINE LATEX IS DONE USING \( latex here \)-->
-    <!-- BLOCK LATEX IS DONE USING \[ latex here \] -->
-    <!-- COPY/REFER TO THE EXAMPLE BELOW-->
-
-    <h2>Heat Capacity</h2>
-    <p> this is how you do inline latex: \(ax^2 + bx + c = 0\).</p>
-    <p>this is how to do block latex: \[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\] </p>
-    <p> this one carries on because it caries on because it caries on because it caries on because it caries on because
-        it caries on because it caries on because it caries on because it caries on because it caries on because it
-        caries on because it caries on because it caries on </p>
-    <p> and this is how to have a new line</p>
-    <h4>example subsection</h4>
-    <h2>Emission Spectra</h2>
-    <h2>The Planck distribution</h2>
-
-    <p>Here we will provide an informal derivation of the black body radiation power spectrum using very simplified
-        quantum field theory, in which quantum theory is applied to model fields instead of single particles.
-        Intuitively, this is required for a complete treatment of the black body since processes like emission and
-        absorption involve the creation and destruction of particles (photons) and so we cannot just have a theory with
-        a fixed number of particles. The Lagrangian density for a massless, free scalar field in \(1+1 \) dimensions is:
-    <p>
-
-    <p>\[\mathcal{L} = -1/2(\partial_t\phi)^2+1/2(\partial_x\phi)^2\]
-    <p>
-
-    <p>We will use this field as a toy model for the electromagetic field causing blackbody radiation. The real
-        electromagnetic field is four dimensional, is vector not scalar and includes spin and polarisations, all of
-        which we ignore.
-    <p>
-    <p> Instead of considering \(\phi(x,t) \) it is easier to consider \({\widetilde{\phi}(x,t)} =
-        \widetilde{\phi}(t)e^{-ikx} \) which is the fourier transform:
-    <p>\\
-
-    <p>\[{\widetilde{\phi}(k,t)} = 1/\sqrt{2\pi}\int{\phi(x,t)e^{-ikx}}dx\]
-    <p>
-
-    <p>Since \(\partial_xe^{-ikx} = -ik)\ the lagrangian density becomes:
-    <p>
-    <p>\[\mathcal{L} = -1/2\frac{\partial\widetilde{\phi(k,t)}}{\partial t} +k^2\widetilde{\phi}(k,t)^2\]
-    <p>
-
-    <p>Surprisingly this is just the lagrangian for the harmonic osscilator. It is often said quantum field theory
-        implies a harmonic osscilator at every point in space. Since we have taken a fourier transform it is better to
-        say there is one for each mode, or each point in 'momentum space'. For brevity we simply quote the result from
-        quantum mechanics that a harmonic osscilator has energies \(E_n = n\hbar(\omega +1/2) )\ and that we can add a
-        quanta of energy to a state by acting on it with a creation operator \(a \) and remove one with an annihilation
-        operator \(a^* \), where the star means the hermitean conjugate of.
-    <p>
-    <p>These operators obey commutation relations and their product is the energy level n
-    <p>
-
-    <p>\[[a^*,a] = 1\]
-    <p>
-    <p>\[a^*a = n\]
-    <p>
-    <p>To make the calculation clearer we use dirac braket notation to label a state \({\displaystyle |n\rangle } \)
-        instead of \(\widetilde{\phi}(t) \) while remembering that the state is that of a particular mode in the quantum
-        field at a certain energy level n. Applying schrodinger's equation \[H{\displaystyle |n\rangle } =
-        E_n{\displaystyle |n\rangle }\], where H is the hamiltonian operator.
-    <p>
-
-    <p>\[H(a{\displaystyle |n\rangle }) = (aa^*a+1/2a){\displaystyle |n\rangle }\]
-    <p>
-    <p>\[= (1/2a+a+aaa^*){\displaystyle |n\rangle } = (n+1+1/2)a{\displaystyle |n\rangle }\]
-    <p>
-
-    <p>But since \(E_n = n\hbar(\omega +1/2) \) this implies \(a{\displaystyle |n\rangle } \) is a state \(
-        {\displaystyle |n+1\rangle } \) with energy level one higher. More precisely:
-    <p>
-
-    <p>\[{\displaystyle \langle n| }a^*a{\displaystyle |n\rangle }\]
-    <p>
-    <p>\[= {\displaystyle \langle n| }n+1{\displaystyle |n\rangle }\]
-    <p>
-
-    <p> There is a normalisation factor: \[a{\displaystyle |n\rangle } = \sqrt{n+1}{\displaystyle |n\rangle }\]
-    <p>
-
-    <p>If we repeat for annihilation we get:
-    <p>
-
-    <p>\[{\displaystyle \langle n| }aa^*{\displaystyle |n\rangle }\]
-    <p>
-    <p>\[= {\displaystyle \langle n| }n{\displaystyle |n\rangle }\]
-    <p>
-
-    <p>This gives another normalisation factor: \[a^*{\displaystyle |n\rangle } = \sqrt{n}{\displaystyle |n-1\rangle }\]
-    <p>
 
 
-
-
-    <p>In quantum field theory, we interpret \(a) \ as adding a quantum of energy, or particle, to a mode in the field.
-    <p>
-    <p>We will model n photons in the presence of one atom. The quantum state $${\displaystyle |n,0\rangle }$$ will
-        denote n photons and the atom in its ground state and the state $${\displaystyle |n,1\rangle }$$ will denote n
-        photons and the atom in its excited state. Here we will only consider one atomic transition and will let the n
-        photons be in the mode with the right wavelength for that transition. If we let $\mathcal{O}$ be the operator
-        that takes the atom from the ground to excited state the amplitude for excitation is:
-    <p>
-
-    <p> \[ \mathcal{A}_e= {\displaystyle \langle n-1,1| }a^*\mathcal{O}{\displaystyle |n,0\rangle }\]
-    <p>
-    <p>\[{\displaystyle \langle n-1| }a^*{\displaystyle |n\rangle }{\displaystyle \langle 1| }\mathcal{O}{\displaystyle
-        |0\rangle }\]
-    <p>
-
-    <p>Similarly the amplitude for de-excitation is:
-    <p>
-
-    <p>\[ \mathcal{A}_d= {\displaystyle \langle n+1,0| }a\mathcal{O^*}{\displaystyle |n,1\rangle }\]
-    <p>
-    <p>\[{\displaystyle \langle n+1| }a{\displaystyle |n\rangle }{\displaystyle \langle 0| }\mathcal{O^*}{\displaystyle
-        |1\rangle }\]
-    <p>
 
     <p>but note that:
     <p>
@@ -250,7 +133,7 @@
         wavenumber k can be quantised:
     <p>
 
-    <p>\[\vec{k} = (k_x,k_y,k_z) = (2l_x\pi/L_x,2l_y\pi/L_y,2l_z\pi/L_z)\]
+    <p>\[\vec{k} = (k_x,k_y,k_z) = (2l_x\pi/L_x,2l_y\pi/L_y,2l_z\pi/L_z\)]
     <p>
 
     <p>where $l_{x,y,z}$ are integers.
@@ -284,7 +167,7 @@
         This is quite a hard integral. Without doing it (as long as it does not diverge) we have still extracted the
         basic physics: the total energy of a black body goes like the fourth power of its temperature.
 
-    <h2>The integral<h2>
+    <h2>The integral</h2>
 
             Luckily Riemann elegantly tackled this integral using his famous zeta function. We will consider:
 
@@ -301,10 +184,10 @@
 
             \[ =\sum_{k=0}^\infty\frac{1}{k^n}\int_{0}^\infty a^ne^a da \]
 
-            The sum is just the definition of the riemann zeta function, \(\zeta(n)\), while the integral is the
+            The sum is just the definition of the riemann zeta function, \(\zeta(n\)), while the integral is the
             definition of $\Gamma(n+1)$, the gamma function. Plugging in n = 3 gives:
 
-            \[I(3) = \Gamma(4)\zeta(4) = 6\pi^4/90 = \pi^4/15\]
+            \[I(3) = \Gamma(4\)zeta(4) = 6\pi^4/90 = \pi^4/15\]
 
             Where the values of gamma can be found from the property that for integer n: $\Gamma{(n+1)} = n!$ or
             alternatively using integration by parts and the value of $\zeta(4) = \pi^4/90$ is merely quoted since a
@@ -320,7 +203,7 @@
             some work to do, however, as Stefan's law is for power per unit surface area, not total energy emitted. The
             energy density $E/V$ is simply $4\sigma T^4$. If we imagine a small region on the surface of the black body,
             only half of the energy will be emitted outwards and only half again will be emitted normally (which comes
-            from $\int_{0}^{\pi/2} \sin(\theta)\cos(\theta)d\theta = 1/2$). Thus:
+            from $\int_{0}^{\pi/2} \sin(\theta\)cos(\theta)d\theta = 1/2$). Thus:
 
             \[P=\sigma T^4\]
 
