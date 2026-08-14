@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hydrogen Emission Spectra</title>
+
+    <script src="https://cdn.plot.ly/plotly-3.7.0.min.js" charset="utf-8"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <script src="js/shared/utils.js"></script>
+    <link rel="stylesheet" href="css/shared.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li style="float: left;" id="home"><a href="index.html">home</a></li>
+            <li><a href="random_walk.html">1<span class="title">random walk</span></a></li>
+            <li><a href="brownian_motion.html">2<span class="title">brownian motion</span></a></li>
+            <li><a href="black_body_spectra.html">3<span class="title">black body spectra</span></a></li>
+            <li><a href="photoelectric_effect.html">4<span class="title">photoelectric effect</span></a></li>
+            <li><a href="hydrogen_emmision_spectra.html" class="active">5<span class="title">hydrogen emission spectra</span></a></li>
+            <li><a href="electron_diffraction.html">6<span class="title">electron diffraction</span></a></li>
+            <li><a href="particle_in_a_box.html">7<span class="title">particle in a box</span></a></li>
+            <li><a href="quantum_cryptography.html">8<span class="title">quantum cryptography</span></a></li>
+            <li><a href="compton_scattering.html">9<span class="title">compton scattering</span></a></li>
+            <li><a href="hydrogen_orbitals.html">10<span class="title">hydrogen orbitals</span></a></li>
+            <li style="float: right;" id="about"><a href="extra.html">extra</a></li>
+        </ul>
+    </div>
+    <h1>Hydrogen Emission Spectra</h1>
+    <div style="width: 100%; height: 100%;">
+        <div id="spectra"></div>
+    </div>
+    <script src="js/pages/hydrogen_emmission_spectra.js"></script>
+    <br>
+    <br>
+    <br>
+
+
+
+    <!-- EXPLANATION BELOW-->
+
+    <h2>Hydrogen Emission Spectra</h2>
+    <h2>The radial wavefunction</h2>
+            <p>
+              \section{The radial wavefunction}
+
+We will closely follow the treatment of hydrogen in the Feynman lectures on physics and Griffiths. We first begin with a simplified model in which we neglect angular momentum and spin of the electron and only consider its radial position. The schrodinger equation reads:
+
+\[ -\frac{\hbar^2}{2m}\nabla^2\psi +V\psi = E \psi  \]
+
+where \(\psi\) is the wavefunction and we take \(V = -\frac{e^2}{4\pi\varepsilon_o}\) caused by a proton at the origin, \(m\) is the electron mass.
+In cartesian co-ordinates the vector operator \(\vec{\nabla}\) (where we wrote the Laplacian \(\nabla^2 = \vec{\nabla}\cdot\vec{\nabla}\)) has a simple form:
+
+\[ \vec{\nabla} = (\partial_x,\partial_y,\partial_z)\]
+
+Since we want to describe the electron's distance from the origin (the proton) it is clearly best to pick spherical co-ordinates given by:
+
+\[ x = r\sin(\theta)\cos(\phi)\]
+\[y = r\sin(\theta)\sin(\phi)\]
+\[z = r\cos(\theta)    \]
+
+We quote that the radial part of the Laplacian in spherical coordinates is:
+        We will closely follow the treatment of hydrogen in the Feynman lectures on physics and Griffiths. We first
+        begin with a simplified model in which we neglect angular momentum and spin of the electron, so only consider
+        its radial position. The schrodinger equation reads:
+
+        \[ -\frac{\hbar^2}{2m}\nabla^2\psi +V\psi = E \psi \]
+
+        where $\psi$ is the wavefunction and we take $V = -\frac{e^2}{4\pi\varepsilon_o}$ caused by a proton at the
+        origin and m is the electron mass.
+        In cartesian co-ordinates the vector operator $\vec{\nabla}$ (where we wrote the Laplacian $\nabla^2 =
+        \vec{\nabla}\cdot\vec{\nabla}$) has a simple form:
+
+        \[ \vec{\nabla} = (\partial_x,\partial_y,\partial_z)\]
+
+        Since we want to describe the electron's distance from the origin (the proton) it is clearly best to pick
+        spherical co-ordinates given by:
+
+To clean the equation up we choose units so \(4\pi\varepsilon_o = 1\) if we define \(r = \hbar^2\rho/me^2\) and use the potential \(\varepsilon = 2\hbar^2E/m e^4\) then we have:
+        \[ x = r\sin(\theta)\cos(\phi)\]
+        \[y = r\sin(\theta)\sin(\phi)\]
+        \[z = r\cos(\theta) \]
+
+        We quote that the radial part of the Laplacian is:
+
+        \[\nabla^2f = \frac{1}{r}\partial_r^2(rf)\]
+
+\(r_B=\hbar^2/me^2\) and \(E_R = e^2m/2\hbar^2\) are the 'Bohr radius' and 'Rydberg constant' and are convenient to define because, as we will see, the hydrogen atom will have discrete energy levels. Feynman says "There are explanations [of how to solve this DE] ... but they are not real." Thus we will just show one method below while keeping in mind some steps may seem arbitrary but are used because they work.
+
+let \(f= \rho\psi\) and \(g(\rho)\) so that \(f(\rho) = e^{-a\rho}g(\rho)\)
+
+\[g'= e^{a\rho}[fa+f']\]
+so
+\[g''= e^{a\rho}[fa^2+2f'a+f'']\]
+putting this back into schrodinger's equation:
+\[g'' -2\alpha\rho g' +(\frac{2}{\rho} +\alpha^2+\varepsilon)g \]
+choosing \(\alpha^2= -\varepsilon\): 
+\[g'' -2\alpha\rho g' +\frac{2}{\rho}g \]
+
+We then expand \(g\) in an infinite power series of \(\rho\):
+        We then have:
+
+        \[-\frac{\hbar^2}{2m}\frac{1}{r}\partial_r^2(r\psi)-\frac{e^2}{4\pi\varepsilon_o}\psi= E \psi\]
+
+        To clean the equation up we choose units so $4\pi\varepsilon_o = 1$ if we define $r = \hbar^2\rho/me^2$ and use
+        the potential $\varepsilon = e^2m/2\hbar^2$ then we have:
+
+        \[\frac{1}{\rho}\frac{d^2}{d\rho^2}{\rho\psi}\frac{m^2e^4}{\hbar^4} =
+        -\frac{2m}{\hbar^2}(\frac{me^4}{\hbar^2}\varepsilon+\frac{me^4}{\hbar^2\rho})\]
+
+        \[\frac{1}{\rho}\frac{d^2}{d\rho^2}{\rho\psi}= -(\varepsilon+\frac{2}{\rho})\]
+
+        $r_B=\hbar^2/me^2$ and $E_R = e^2m/2\hbar^2$ are the 'Bohr radius' and 'Rydberg constant' and are convenient to
+        define because, as we will see, the hydrogen atom will have discrete energy levels. Feynman says "There are
+        explanations [of how to solve this DE] ... but they are not real." Thus we will just show one method below while
+        keeping in mind some steps may seem arbitrary but are used because they work.
+
+        let $f= \rho\psi$ and $g(\rho)$ so that $f(\rho) = e^{-a\rho}g(\rho)$
+
+        \[g'= e^{a\rho}[fa+f']\]
+        so
+        \[g''= e^{a\rho}[fa^2+2f'a+f'']\]
+        putting this back into schrodinger's equation:
+        \[g'' -2\alpha\rho g' +(\frac{2}{\rho} +\alpha^2+\varepsilon)g \]
+        choosing $\alpha^2= -\varepsilon$:
+        \[g'' -2\alpha\rho g' +\frac{2}{\rho}g \]
+
+        We then expand $g$ in an infinite power series of $\rho$:
+
+Clearly this only holds for all \(\rho\) if the second bracket is zero. But this relates \(b_{k+1}\) to \(b_k\):
+        \[g= \sum b_kk\rho^{k-1}\]
+
+        Note that from the power law for differentiation:
+
+In order to find the energy levels we could sub back our solution into the schrodinger equation. A nicer argument (which does not involve any tedious differentiation) is considering when the electron is far from the proton and demanding the wavefunction goes to zero (so the electron is bound.) For large k we have:
+        \[g' = \sum b_k\rho^{k-1}k\]
+        \[g'' = \sum b_{k+1}(k+1)\rho^{k-1}\]
+
+        So the schrodinger equation reads:
+
+        \[\rho^{k-1}(b_{k+1}(k+1)-2\alpha b_kk+2b_k) = 0\]
+
+        Clearly this only holds for all $\rho$ if the second bracket is zero. But this relates $b_{k+1}$ to $b_k$:
+
+        \[b_{k+1} = 2b_k\frac{\alpha k -1}{k(k+1)}\]
+
+        We now review the quantum mechanics of angular momentum to see how angular momentum affects radial dependence.
+        \section{Angular momentum}
+
+        In classical mechanics angular momentum is a vector defined by $\vec{L} = \vec{r}\times\vec{p}$. If we promote
+        measurable quantities to operators: $ \hat{p} = -i\hbar \frac{d}{dx}$ and $[\hat{x},\hat{p}] =
+        \hat{x}\hat{p}-\hat{p}\hat{x} = i\hbar$. Our aim is to relate the components of angular momentum in the
+        cartesian directions: $\hat{L_x},\hat{L_y},\hat{L_z}$ to the magnitude $\hat{L^2} =\hat{L_x^2}
+        +\hat{L_y^2}+\hat{L_z^2} $.
+
+        As usual with quantum mechanics we can learn alot from commutation relations:
+
+        \[ [L_x,L_y] = [yp_z-zp_y,zp_x-xp_z] \]
+        \[= [yp_z,zp_x]+[zp_y,xp_z]-[zp_y,zp_x]-[yp_z,xp_z]\]
+
+        Note that things do not commute with themselves so:
+
+        \[[L_x,L_y] = [yp_z,zp_x]+[zp_y,xp_z] \]
+        \[= yp_zzp_x-zp_xyp_z+zp_yxp_z-xp_zzp_y \]
+        \[= i\hbar(yp_x-p_xy+p_yx-xp_y)\]
+        \[=i\hbar\hat{L_z}\]
+
+        Since the components of angular momentum do not commute we cannon find wavefunctions that are eigenstates of
+        both. It turns out that the magnitude of angular momentum, L does commute with the components:
+
+
+        \[[L,L_x] = [L_x^2,L_x]+[L_y ^2,L_x]+[L_z^2,L_x]\]
+        \[ =L_y(-i\hbar L_z) +(-i\hbar L_z)L_y+L_z(i\hbar L_y) +(i\hbar L_y)L_z\] = 0
+
+        This means we can look for eigen states of one component of angular momentum, say $L_z$, and the magnitude $L$.
+        Lucky for us, there are creation and annihilation operators for angular momentum:
+
+        \[L_+ = L_x+iL_y\]
+        \[L_ - = L_x - iL_y \]
+
+        \[[L_z, L_+] = [L_z,L_x] +i[L_z,L_y] = i\hbar L_y - i^2\hbar L_x=\hbar L_+\]
+
+        Now let M be an eigenfunction of $L_z$ and $L$ with z component of angular momentum $m\hbar$. Consider $L_+ M$.
+
+        \[L_z(L_+ M) = ([L_z,L_+]+L_+L_z)M = (\hbar L_+ + m \hbar L_+)M\]
+        \[ = \hbar(m+1)L_+ M \]
+
+        It is another eigenfunction with eigenvalue $\hbar(m+1)$. Thus we can interpret $L_+$ as adding a quanta of
+        angular momentum. Similar calculations can be done to show $L_ - $ removes a quanta of angular momentum.
+
+        \section{Including angular momentum}
+
+        In spherical co-ordinates, the schrodinger equation reads:
+
+        \[-\frac{\hbar^2}{2m}[\frac{1}{r}\partial_r^2(r\psi)+\frac{1}{r^2\sin^2\theta}\partial_\theta(\sin\theta
+        \partial_\theta \psi)+\frac{1}{r^2\sin^2\theta}\partial^2_\phi \psi]-\frac{e^2}{4\pi\varepsilon_o}\psi= E \psi\]
+
+        We want to look for a separable solution of the form :
+
+        \[\psi_{n,l,m} = aY_{l,m}(\theta, \phi)F_{l}(r)\]
+
+        where $a$ is a normalisation constant that depends on the definition chosen for $Y_{l,m}$. We aim to find
+        $F_{l}(r)$$.
+
+        Instead of plugging in this separable solution into the schrodinger equation we will take a shortcut to find a
+        differential equation for $F_{l}(r)$.
+
+        In a classical central forces problem angular momentum is conserved because:
+
+        \[ \frac{d\vec{L}}{dt} = \frac{d}{dt}(\vec{r} \times \vec{p})\]
+        \[= \frac{d\vec{r} }{dt}\times \vec{p} +\vec{r} \times \vec{F}\]
+
+        but $\vec{p} = m\vec{v} $ so momentum and velocity are parallel making the first term vanish. If the force is
+        central it only depends on radial distance so the second term also vanishes since force and displacement are
+        also parallel.
+
+        If we let the orbit occur in the x-z plane then the energy is:
+
+        \[E = T+V = \frac{1}{2} m\dot{r}^2 + \frac{1}{2}mr^2\dot{\theta}^2 + V\]
+
+        but in this case $L = mr^2\dot{\theta}$ and so
+
+        \[E = \frac{1}{2} m\dot{r}^2 + \frac{L^2}{2mr^2} + V\]
+
+        which looks like a 1D problem with the "effective" potential $\frac{L^2}{2mr^2} + V$
+
+        Applying this potential to the schrodinger equation we promote angular momentum to an operator, $\hat{L}$ and us
+        the result we already derived for $\hat{L^2}F = \hbar^2l(l+1)F$. (Recall F is the radial part of our separable
+        solution.)
+
+        \[-\frac{\hbar^2}{2m}\frac{1}{r}\frac{d^2(rF)}{dr^2}- \frac{e^2}{4\pi \varepsilon_0 r^2}F +
+        \frac{\hbar^2l(l+1)}{2mr^2}F = EF\]
+        Using the convenient bohr radius/energy as earlier and subbing $f=rF$:
+
+        \[f'' = -(\varepsilon+\frac{2}{\rho} +\frac{l(l+1)}{\rho})f\]
+
+        which means when we replace $f$ with $g$ and expand in a power series in $\rho$ there is an extra $-l(l+1)$ in
+        the $\rho^{-1}$ coefficient.
+
+        Demanding all the terms vanish so all the coefficients vanish:
+
+        \[k(k+1) - l(l+1) a_{k+1} -2(\alpha k-1)a_k = 0\]
+
+        recall $\alpha^2 = - \varepsilon$
+
+\[\frac{\alpha k-1}{k+1} \approx \alpha \]
+
+so
+
+\[ b_{k+1} \approx \frac{2\alpha b_k}{k} \approx \frac{(2\alpha)^k}{k!}\]
+
+recall that 
+
+\[ e^x = 1+x+\frac{x^2}{2!} + \frac{x^3}{3!}...\]
+
+so that our coefficients give:
+
+\[g(\rho) \approx e^{2\alpha \rho}\]
+\[f(\rho) \approx e^{\alpha \rho}\]
+
+but this appears to be (exponentially) divergent as \(\rho \) gets large. The only way the series terminates is if \(\alpha = 1/n\) where n is any integer, so that terms for \(k>n\) vanish since:
+
+\[b_{n+1} = 2b_n\frac{ \frac{n}{n} -1}{n(n+1)} = 0\]
+
+Recalling that \(\alpha^2 = - \varepsilon\) and that \(\varepsilon \) was in Rydberg constant units we have in normal units
+
+\[E_n = - \frac{E_R}{n^2} = - \frac{me^4}{ 32 \pi^2 \varepsilon_0\hbar^2n^2}\]
+
+These are the allowed energies that just happen to be exactly equal to those Bohr derived using a mix of classical and quantum physics thirteen years before Schrodinger did using his equation like us!
+
+\section{Emission spectra}
+That was a long detour into some pretty heavy quantum mechanics, although it was rewarding to see how Bohr's formula comes from the Schrodinger equation itself and not have to rely on arguments with classical orbitals. Now we can quite easily find the wavelength of emitted radiation. If an electron moves from energy level m to n then the change in energy is equal to the energy gained by the emitted photon. Using Planck's formula for the energy of a photon:
+
+\[\Delta E = E_m - E_n = \hbar \omega \]
+and recalling the wave equation:
+
+\[\lambda = c/f = 2 \pi c/\omega = \frac{2\pi c\hbar}{\Delta E}\]\[= \frac{2\pi \hbar c}{E_R}(\frac{1}{n^2} - \frac{1}{m^2})^{-1}\]
+Of course actual hydrogen emission spectra differ slightly: 'fine structure' emerges from spin-orbit coupling, there is a relativistic correction and even smaller differences due to the proton itself being a magnetic dipole or the nucleus being a finite size (not a point mass and with constant potential inside.) 
+
+              
+            </p>
+</body>
+
+</html>
+        We have a slightly modified recursion relation:
+
+        \[a_{k+1} = \frac{2(\alpha k-1)}{k(k+1) - l(l+1)}\alpha_k\]
+
+        note there is a new restriction since if we demand the denominator is non-zero $k>l$ so energy levels start at
+        $n = l+1$, which we can interpret as having enough energy to have that angular momentum.
+
+
+
+
+
+
+        \section{The ground state of Helium}
+
+        Unfortunately, there no closed form solution has been found to the schrodinger equation for helium.
+        Nevertheless, there are decent approximation methods. One of these is called the variational principle and
+        states that:
+
+        \[\langle \psi| H|\psi \rangle > E_0\]
+
+        where $E_0$ is the ground state energy and $\psi$ is any wavefunction. This means that using wavefunctions that
+        have nothing to do with the system being studied can give approximations to the ground state energy can be made
+        by trying to lower the upper bound $\langle \psi| H|\psi \rangle$. This is best used as a method for
+        approximating energies, not wavefunctions, but it is better than just ignoring electron-electron interaction
+        altogether. The full hamiltonian for helium (an atom with two protons, some neutrons and two electrons) is:
+
+        \[H = \frac{\hbar^2}{2m} (\nabla_1^2+\nabla_2^2) -
+        \frac{2ke^2}{\vec{r_1}}-\frac{2ke^2}{\vec{r_2}}-\frac{ke^2}{|\vec{r_2}-\vec{r_1}|}\]
+
+        In english: the electrons are located at $\vec{r_1}$ and $\vec{r_2}$ with the nucleus the origin. There are two
+        kinetic terms for the electrons, two terms for the electromagnetic electron-nucleus interaction and one for the
+        electron electron interaction. Here m is a reduced mass m = $\frac{Am_em_p}{m_e+Am_p}$ where A is the atomic
+        number and will vary depending on the number of neutrons in the helium nucleus.
+
+        The hamiltonian naturally resembles the one for hydrogen we saw at the start, only the electron-electron
+        interaction is new. If we ignore it altogether we have two independent hydrogen hamiltonians and so the helium
+        ground-state wavefunction will be a product of two hydrogen ground-state wavefunctions:
+
+        \[\psi_0 = (\frac1{\sqrt{\pi a^3}})^2e^{-r_1/a}e^{-r_2/a} = \frac{1}{\pi a^3}e^{-r_1/a -r_2/a}\]
+
+        if we take a to be a bohr radius then $a=\hbar^2/2m(2e)^2$

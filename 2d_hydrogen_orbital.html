@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2D Hydrogenic Orbitals</title>
+
+    <script src="https://cdn.plot.ly/plotly-3.7.0.min.js" charset="utf-8"></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+
+    <link rel="stylesheet" href="css/shared.css">
+
+    <style>
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="controls">
+        <div>
+            <label for="planeSelect">plane:</label>
+            <select id="planeSelect">
+                <option value="xy">XY</option>
+                <option value="xz">XZ</option>
+                <option value="yz">YZ</option>
+            </select>
+        </div>
+        <div>
+            <label for="nInput">prinjciple (n):</label>
+            <input type="number" id="nInput" min="1" max="10">
+        </div>
+        <div>
+            <label for="lInput">angular (l):</label>
+            <input type="number" id="lInput" min="0" max="9">
+        </div>
+        <div>
+            <label for="mInput">magnetic (m):</label>
+            <input type="number" id="mInput" min="-9" max="9">
+        </div>
+        <div>
+            <label for="quality">quality: <span id="qualityValue">5</span></label>
+            <input type="range" id="quality" min="1" max="10" value="5">
+        </div>
+        <div id="errors"></div>
+    </div>
+
+    <div class="container">
+        <div id="orbitalPlot"></div>
+        <div id="densityPlot"></div>
+    </div>
+    <script src="js/pages/2d_orbitals.js"></script>
+
+    <footer style="text-align: center; margin-top: 20px;">
+        <a href="hydrogen_orbitals.html">Hydrogen Orbitals Main Page</a>
+        <a href="3d_orbitals.html" style="margin-left: 20px;">3D Hydrogenic Orbital Plots</a>
+    </footer>
+</body>
+
+</html>

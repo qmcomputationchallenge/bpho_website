@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blackbody Spectra</title>
+
+    <script src="https://cdn.plot.ly/plotly-3.7.0.min.js" charset="utf-8"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <script src="js/shared/utils.js"></script>
+    <link rel="stylesheet" href="css/shared.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li style="float: left;" id="home"><a href="index.html">home</a></li>
+            <li><a href="random_walk.html">1<span class="title">random walk</span></a></li>
+            <li><a href="brownian_motion.html">2<span class="title">brownian motion</span></a></li>
+            <li><a href="black_body_spectra.html" class="active">3<span class="title">black body spectra</span></a></li>
+            <li><a href="photoelectric_effect.html">4<span class="title">photoelectric effect</span></a></li>
+            <li><a href="hydrogen_emmision_spectra.html">5<span class="title">hydrogen emission spectra</span></a></li>
+            <li><a href="electron_diffraction.html">6<span class="title">electron diffraction</span></a></li>
+            <li><a href="particle_in_a_box.html">7<span class="title">particle in a box</span></a></li>
+            <li><a href="quantum_cryptography.html">8<span class="title">quantum cryptography</span></a></li>
+            <li><a href="compton_scattering.html">9<span class="title">compton scattering</span></a></li>
+            <li><a href="hydrogen_orbitals.html">10<span class="title">hydrogen orbitals</span></a></li>
+            <li style="float: right;" id="about"><a href="extra.html">extra</a></li>
+        </ul>
+    </div>
+    <div style="width: 80%; height: 400px;" class="plot">
+        <div id="heatCapacity"></div>
+        </div>
+        <div style="width: 65%; height: 400px;" class="plot">
+            <div id="spectra"></div>
+        </div>
+        <script src="js/pages/blackbody_spectra.js"></script>
+
+        <br>
+        <br>
+        <br>
+
+     <h2>The Planck distribution</h2>
+
+ <p>Here we will provide an informal derivation of the black body radiation power spectrum using very simplified quantum field theory, in which quantum theory is applied to model fields instead of single particles. Intuitively, this is required for a complete treatment of the black body since processes like emission and absorption involve the creation and destruction of particles (photons) and so we cannot just have a theory with a fixed number of particles. The Lagrangian density for a massless, free scalar field in  \(1+1 \) dimensions is: <p>
+
+ <p>\[\mathcal{L} = -1/2(\partial_t\phi)^2+1/2(\partial_x\phi)^2\] <p>
+
+ <p>We will use this field as a toy model for the electromagetic field causing blackbody radiation. The real electromagnetic field is four dimensional, is vector not scalar and includes spin and polarisations, all of which we ignore. <p> <p> Instead of considering \(\phi(x,t) \) it is easier to consider  \({\widetilde{\phi}(x,t)} = \widetilde{\phi}(t)e^{-ikx} \) which is the fourier transform: <p>\\
+
+ <p>\[{\widetilde{\phi}(k,t)} = 1/\sqrt{2\pi}\int{\phi(x,t)e^{-ikx}}dx\] <p>
+
+ <p>Since \(\partial_xe^{-ikx} = -ik)\ the lagrangian density becomes: <p>
+ <p>\[\mathcal{L} = -1/2\frac{\partial\widetilde{\phi(k,t)}}{\partial t}  +k^2\widetilde{\phi}(k,t)^2\] <p>
+
+ <p>Surprisingly this is just the lagrangian for the harmonic osscilator. It is often said quantum field theory implies a harmonic osscilator at every point in space. Since we have taken a fourier transform it is better to say there is one for each mode, or each point in 'momentum space'. For brevity we simply quote the result from quantum mechanics that a harmonic osscilator has energies  \(E_n = n\hbar(\omega +1/2) )\ and that we can add a quanta of energy to a state by acting on it with a creation operator  \(a \) and remove one with an annihilation operator  \(a^* \), where the star means the hermitean conjugate of.  <p> <p>These operators obey commutation relations and their product is the energy level n <p>
+
+ <p>\[[a^*,a] = 1\] <p>
+ <p>\[a^*a = n\] <p>
+ <p>To make the calculation clearer we use dirac braket notation to label a state  \({\displaystyle |n\rangle } \) instead of  \(\widetilde{\phi}(t) \) while remembering that the state is that of a particular mode in the quantum field at a certain energy level n. Applying schrodinger's equation \[H{\displaystyle |n\rangle } = E_n{\displaystyle |n\rangle }\], where H is the hamiltonian operator. <p>
+
+ <p>\[H(a{\displaystyle |n\rangle }) = (aa^*a+1/2a){\displaystyle |n\rangle }\]  <p>
+ <p>\[= (1/2a+a+aaa^*){\displaystyle |n\rangle } = (n+1+1/2)a{\displaystyle |n\rangle }\] <p>
+
+ <p>But since  \(E_n = n\hbar(\omega +1/2) \) this implies  \(a{\displaystyle |n\rangle } \) is a state  \( {\displaystyle |n+1\rangle } \) with energy level one higher. More precisely: <p>
+
+ <p>\[{\displaystyle \langle n| }a^*a{\displaystyle |n\rangle }\]  <p>
+ <p>\[= {\displaystyle \langle n| }n+1{\displaystyle |n\rangle }\] <p>
+
+ <p> There is a normalisation factor: \[a{\displaystyle |n\rangle } = \sqrt{n+1}{\displaystyle |n\rangle }\]     <p>
+
+ <p>If we repeat for annihilation we get: <p>
+
+ <p>\[{\displaystyle \langle n| }aa^*{\displaystyle |n\rangle }\]  <p>
+ <p>\[= {\displaystyle \langle n| }n{\displaystyle |n\rangle }\] <p>
+
+ <p>This gives another normalisation factor: \[a^*{\displaystyle |n\rangle } = \sqrt{n}{\displaystyle |n-1\rangle }\] <p>
+
+
+
+
+ <p>In quantum field theory, we interpret  \(a)\ as adding a quantum of energy, or particle, to a mode in the field.  <p> <p>We will model n photons in the presence of one atom. The quantum state \({\displaystyle |n,0\rangle })\ will denote n photons and the atom in its ground state and the state \({\displaystyle |n,1\rangle })\ will denote n photons and the atom in its excited state. Here we will only consider one atomic transition and will let the n photons be in the mode with the right wavelength for that transition. If we let \(\mathcal{O})\ be the operator that takes the atom from the ground to excited state the amplitude for excitation is: <p>
+
+ <p> \[ \mathcal{A}_e= {\displaystyle \langle n-1,1| }a^*\mathcal{O}{\displaystyle |n,0\rangle }\] <p>
+ <p>\[{\displaystyle \langle n-1| }a^*{\displaystyle |n\rangle }{\displaystyle \langle 1| }\mathcal{O}{\displaystyle |0\rangle }\] <p>
+
+ <p>Similarly the amplitude for de-excitation is: <p>
+
+ <p>\[ \mathcal{A}_d= {\displaystyle \langle n+1,0| }a\mathcal{O^*}{\displaystyle |n,1\rangle }\] <p>
+ <p>\[{\displaystyle \langle n+1| }a{\displaystyle |n\rangle }{\displaystyle \langle 0| }\mathcal{O^*}{\displaystyle |1\rangle }\] <p>
+
+    <!-- INSTRUCTIONS FOR YOU -->
+    <!-- WRITE A SECTION USING THE <h2> TAG-->
+    <!-- WRITE A SUBSECTION USING THE <h4> TAG -->
+    <!-- WRITE A PARAGRAPH USING THE <p> TAG -->
+    <!-- INLINE LATEX IS DONE USING \( latex here \)-->
+    <!-- BLOCK LATEX IS DONE USING \[ latex here \] -->
+    <!-- COPY/REFER TO THE EXAMPLE BELOW-->
+
+    <h2>Heat Capacity</h2>
+    <p> this is how you do inline latex: \(ax^2 + bx + c = 0\).</p>
+    <p>this is how to do block latex: \[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\] </p>
+    <p> this one carries on because it caries on because it caries on because it caries on because it caries on because
+        it caries on because it caries on because it caries on because it caries on because it caries on because it
+        caries on because it caries on because it caries on </p>
+    <p> and this is how to have a new line</p>
+    <h4>example subsection</h4>
+    <h2>Emission Spectra</h2>
+    <h2>The Planck distribution</h2>
+
+    <p>Here we will provide an informal derivation of the black body radiation power spectrum using very simplified
+        quantum field theory, in which quantum theory is applied to model fields instead of single particles.
+        Intuitively, this is required for a complete treatment of the black body since processes like emission and
+        absorption involve the creation and destruction of particles (photons) and so we cannot just have a theory with
+        a fixed number of particles. The Lagrangian density for a massless, free scalar field in \(1+1 \) dimensions is:
+    <p>
+
+    <p>\[\mathcal{L} = -1/2(\partial_t\phi)^2+1/2(\partial_x\phi)^2\]
+    <p>
+
+    <p>We will use this field as a toy model for the electromagetic field causing blackbody radiation. The real
+        electromagnetic field is four dimensional, is vector not scalar and includes spin and polarisations, all of
+        which we ignore.
+    <p>
+    <p> Instead of considering \(\phi(x,t) \) it is easier to consider \({\widetilde{\phi}(x,t)} =
+        \widetilde{\phi}(t)e^{-ikx} \) which is the fourier transform:
+    <p>\\
+
+    <p>\[{\widetilde{\phi}(k,t)} = 1/\sqrt{2\pi}\int{\phi(x,t)e^{-ikx}}dx\]
+    <p>
+
+    <p>Since \(\partial_xe^{-ikx} = -ik)\ the lagrangian density becomes:
+    <p>
+    <p>\[\mathcal{L} = -1/2\frac{\partial\widetilde{\phi(k,t)}}{\partial t} +k^2\widetilde{\phi}(k,t)^2\]
+    <p>
+
+    <p>Surprisingly this is just the lagrangian for the harmonic osscilator. It is often said quantum field theory
+        implies a harmonic osscilator at every point in space. Since we have taken a fourier transform it is better to
+        say there is one for each mode, or each point in 'momentum space'. For brevity we simply quote the result from
+        quantum mechanics that a harmonic osscilator has energies \(E_n = n\hbar(\omega +1/2) )\ and that we can add a
+        quanta of energy to a state by acting on it with a creation operator \(a \) and remove one with an annihilation
+        operator \(a^* \), where the star means the hermitean conjugate of.
+    <p>
+    <p>These operators obey commutation relations and their product is the energy level n
+    <p>
+
+    <p>\[[a^*,a] = 1\]
+    <p>
+    <p>\[a^*a = n\]
+    <p>
+    <p>To make the calculation clearer we use dirac braket notation to label a state \({\displaystyle |n\rangle } \)
+        instead of \(\widetilde{\phi}(t) \) while remembering that the state is that of a particular mode in the quantum
+        field at a certain energy level n. Applying schrodinger's equation \[H{\displaystyle |n\rangle } =
+        E_n{\displaystyle |n\rangle }\], where H is the hamiltonian operator.
+    <p>
+
+    <p>\[H(a{\displaystyle |n\rangle }) = (aa^*a+1/2a){\displaystyle |n\rangle }\]
+    <p>
+    <p>\[= (1/2a+a+aaa^*){\displaystyle |n\rangle } = (n+1+1/2)a{\displaystyle |n\rangle }\]
+    <p>
+
+    <p>But since \(E_n = n\hbar(\omega +1/2) \) this implies \(a{\displaystyle |n\rangle } \) is a state \(
+        {\displaystyle |n+1\rangle } \) with energy level one higher. More precisely:
+    <p>
+
+    <p>\[{\displaystyle \langle n| }a^*a{\displaystyle |n\rangle }\]
+    <p>
+    <p>\[= {\displaystyle \langle n| }n+1{\displaystyle |n\rangle }\]
+    <p>
+
+    <p> There is a normalisation factor: \[a{\displaystyle |n\rangle } = \sqrt{n+1}{\displaystyle |n\rangle }\]
+    <p>
+
+    <p>If we repeat for annihilation we get:
+    <p>
+
+    <p>\[{\displaystyle \langle n| }aa^*{\displaystyle |n\rangle }\]
+    <p>
+    <p>\[= {\displaystyle \langle n| }n{\displaystyle |n\rangle }\]
+    <p>
+
+    <p>This gives another normalisation factor: \[a^*{\displaystyle |n\rangle } = \sqrt{n}{\displaystyle |n-1\rangle }\]
+    <p>
+
+
+
+
+    <p>In quantum field theory, we interpret \(a) \ as adding a quantum of energy, or particle, to a mode in the field.
+    <p>
+    <p>We will model n photons in the presence of one atom. The quantum state $${\displaystyle |n,0\rangle }$$ will
+        denote n photons and the atom in its ground state and the state $${\displaystyle |n,1\rangle }$$ will denote n
+        photons and the atom in its excited state. Here we will only consider one atomic transition and will let the n
+        photons be in the mode with the right wavelength for that transition. If we let $\mathcal{O}$ be the operator
+        that takes the atom from the ground to excited state the amplitude for excitation is:
+    <p>
+
+    <p> \[ \mathcal{A}_e= {\displaystyle \langle n-1,1| }a^*\mathcal{O}{\displaystyle |n,0\rangle }\]
+    <p>
+    <p>\[{\displaystyle \langle n-1| }a^*{\displaystyle |n\rangle }{\displaystyle \langle 1| }\mathcal{O}{\displaystyle
+        |0\rangle }\]
+    <p>
+
+    <p>Similarly the amplitude for de-excitation is:
+    <p>
+
+    <p>\[ \mathcal{A}_d= {\displaystyle \langle n+1,0| }a\mathcal{O^*}{\displaystyle |n,1\rangle }\]
+    <p>
+    <p>\[{\displaystyle \langle n+1| }a{\displaystyle |n\rangle }{\displaystyle \langle 0| }\mathcal{O^*}{\displaystyle
+        |1\rangle }\]
+    <p>
+
+    <p>but note that:
+    <p>
+
+    <p>\[{\displaystyle \langle n+1| }a{\displaystyle |n\rangle } = {\displaystyle \langle n+1|
+        }\sqrt{n+1}{\displaystyle |n+1\rangle }\]
+        \[= \sqrt{n+1}\]
+    <p>
+
+    <p>and similarly:
+    <p>
+
+    <p>\[{\displaystyle \langle n-1| }a^*{\displaystyle |n\rangle } = \sqrt{n}\]
+    <p>
+
+    <p>This implies the ratio of the transition amplitudes \(\mathcal{A}_e$ and $\mathcal{A}_d) \ is
+    <p>
+
+    <p>\[ \frac{\mathcal{A}_e }{\mathcal{A}_d} = \sqrt{\frac{n}{n+1}}\]
+    <p>
+
+    <p>Since in quantum mechanics we square amplitudes to get probability, we can square to get the relative probability
+        between excitation and de-excitation.
+    <p>
+    <p>The Boltzmann distribution states the probability of a state having energy $E$ at temperature \(T) \ is
+        proportional to \(e^{-E/k_B T) \. Planck's law (or the formula for energy from a quantum harmonic osscilator)
+        gives the energy of a photon of frequency \(\omega \): \(\hbar\omega) \
+    <p>
+    <p>Thus:
+    <p>
+
+    <p>\[\frac{n}{n+1} = e^{-\hbar\omega/k_BT}\]
+    <p>
+
+    <p>\[n = \frac{1}{e^{\hbar\omega/k_BT}-1}\]
+    <p>
+
+    <p>To get the function \(B(\lambda,T)) \ we will have to consider a photon gas in a box of volume \(V = L_xL_yL_z)
+        \. If we invoke the boundary condition that the electromagnetic field vanishes on the faces of the box then the
+        wavenumber k can be quantised:
+    <p>
+
+    <p>\[\vec{k} = (k_x,k_y,k_z) = (2l_x\pi/L_x,2l_y\pi/L_y,2l_z\pi/L_z)\]
+    <p>
+
+    <p>where $l_{x,y,z}$ are integers.
+    <p>
+    <p> This follows because sine vanishes for integers of $\pi$ and we are considering an (infinite) sum of sinusoidal
+        solutions.
+    <p>
+    <p> There will be only one state in a box of side lengths \((\pi/L_x,\pi/L_y,\pi/L_z) \) in \(\vec{k}) \ space, a
+        three dimensional space with axis' being the components of \(\vec{k}) \.
+    <p>
+    <p>This implies the volume one state occupies is \((2\pi)^3/L_1L_2L_3 = (2\pi)^3/V) \. The density of states in
+        \(\vec{k}) \ space is just the reciprocal of this volume times a factor of two since a photon has two
+        polarisation states: \(2V/(2\pi)^3) \. We want the density in \(\omega ) \, since we know \(n = n(\omega)) \:
+        the mean number of photons in a mode. Light travels at c so \(\omega = c|\vec{k}| = ck ) \ for convenience. Note
+        that in \(\vec{k}) \ space, k will be a radial co-ordinate so we can get the density of states in k by
+        integrating over a sphere of radius k:
+
+        \[\frac{8\pi k^2 V}{(2\pi)^3} = \frac{ k^2 V}{\pi^2} = \frac{ \omega^2 V}{c^2\pi^2}\]
+
+        The number density \(N(\omega)) \ of photons is the density of modes, which we just found, multiplied by the
+        average number of photons \(n(\omega)) \
+
+        \[N(\omega) = \frac{ \omega^2 V}{c^2\pi^2} \frac{1}{e^{\hbar\omega/k_BT}-1}\]
+
+        Then the total energy is:
+
+        \[E = \int E(\omega) d\omega = \int \hbar \omega N(\omega) d\omega = \int \frac{\hbar \omega^3 V}{c^2\pi^2}
+        \frac{1}{e^{\hbar\omega/k_BT}-1} d\omega \]
+        \[ = \frac{\ k_B^4T^4 V}{\hbar^3\pi^2c^2} \int_{0}^\infty \frac{a^n}{e^{a}-1} da\]
+
+        This is quite a hard integral. Without doing it (as long as it does not diverge) we have still extracted the
+        basic physics: the total energy of a black body goes like the fourth power of its temperature.
+
+    <h2>The integral<h2>
+
+            Luckily Riemann elegantly tackled this integral using his famous zeta function. We will consider:
+
+            \[I(n) = \int_{0}^\infty \frac{a^n}{e^{a}-1} da\]
+
+            We can taylor expand the denominator:
+
+            \[\int_{0}^\infty -a^n[1+e^a+e^{2a}... ] da\]
+
+            Now we will make a series of substitutions $a'' = 2a, a''' = 3a, a'''' = 4a $ etc.
+
+            \[\int_{0}^\infty -a^n[1+e^a] da + \int_{0}^\infty - \frac{a'^n}{2^n}e^{a'} da + \int_{0}^\infty
+            -\frac{a''^n}{3^n}e^{a''}da+ .. \]
+
+            \[ =\sum_{k=0}^\infty\frac{1}{k^n}\int_{0}^\infty a^ne^a da \]
+
+            The sum is just the definition of the riemann zeta function, \(\zeta(n)\), while the integral is the
+            definition of $\Gamma(n+1)$, the gamma function. Plugging in n = 3 gives:
+
+            \[I(3) = \Gamma(4)\zeta(4) = 6\pi^4/90 = \pi^4/15\]
+
+            Where the values of gamma can be found from the property that for integer n: $\Gamma{(n+1)} = n!$ or
+            alternatively using integration by parts and the value of $\zeta(4) = \pi^4/90$ is merely quoted since a
+            foray into infinite sums is beyond our scope.
+
+            \section{Stefan's law}
+
+            We have finally found:
+
+            \[E = \frac{\ \pi^2k_B^4T^4 V}{15\hbar^3c^2} = 4\sigma VT^4\]
+
+            This means we have derived $\sigma = \frac{\pi^2}{60\hbar^3}$, the Stefan Boltzmann constant. We still have
+            some work to do, however, as Stefan's law is for power per unit surface area, not total energy emitted. The
+            energy density $E/V$ is simply $4\sigma T^4$. If we imagine a small region on the surface of the black body,
+            only half of the energy will be emitted outwards and only half again will be emitted normally (which comes
+            from $\int_{0}^{\pi/2} \sin(\theta)\cos(\theta)d\theta = 1/2$). Thus:
+
+            \[P=\sigma T^4\]
+
+            \section{The Einstein heat capacity model}
+
+            We can apply the planck distribution to the energy levels of atoms in a metal to predict the dependence of
+            heat capacity on temperature.
+
+            Writing
+
+            \[ C = \frac{dU}{dt}\]
+
+            We aim to find an expression for $U = U(T)$ - the internal energy - and then differentiate it. Einstein made
+            the approximation that each molecule vibrates at a fixed einstein frequency $f_E$ so that the average energy
+            per molecule is:\[ \displaystyle \langle E\displaystyle \rangle = \frac{hf}{e^{hf/k_BT}-1} \]. Assuming that
+            the molecules have three degrees of freedom and that there are $N_An=R/k_B$ molecules then the total
+            internal energy is
+
+            \[U= \frac{d}{dT} [3R\frac{hf}{{e^{hf/k_BT}}-1}]\]
+
+            writing $x = hf/k_BT$ and using the chain rule:
+
+            \[C = \frac{dU}{dT} = \frac{dx}{dT}\frac{dU}{dx} = 3R x^2\frac{d}{dx}[\frac{1}{e^x-1}]
+            =\frac{3Rx^2e^x}{(e^x-1)^2}\]
+
+</body>
+
+</html>

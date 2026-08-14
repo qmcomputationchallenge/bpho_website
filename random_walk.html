@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random Walk</title>
+    <script src="https://cdn.plot.ly/plotly-3.7.0.min.js" charset="utf-8"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="js/shared/utils.js"></script>
+    <link rel="stylesheet" href="css/shared.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li style="float: left;" id="home"><a href="index.html">home</a></li>
+            <li><a href="random_walk.html" class="active">1<span class="title">random walk</span></a></li>
+            <li><a href="brownian_motion.html">2<span class="title">brownian motion</span></a></li>
+            <li><a href="black_body_spectra.html">3<span class="title">black body spectra</span></a></li>
+            <li><a href="photoelectric_effect.html">4<span class="title">photoelectric effect</span></a></li>
+            <li><a href="hydrogen_emmision_spectra.html">5<span class="title">hydrogen emission spectra</span></a></li>
+            <li><a href="electron_diffraction.html">6<span class="title">electron diffraction</span></a></li>
+            <li><a href="particle_in_a_box.html">7<span class="title">particle in a box</span></a></li>
+            <li><a href="quantum_cryptography.html">8<span class="title">quantum cryptography</span></a></li>
+            <li><a href="compton_scattering.html">9<span class="title">compton scattering</span></a></li>
+            <li><a href="hydrogen_orbitals.html">10<span class="title">hydrogen orbitals</span></a></li>
+            <li style="float: right;" id="about"><a href="extra.html">extra</a></li>
+        </ul>
+    </div>
+    <h1>Random Walk</h1>
+
+    <div class="plot">
+        <div id="randomWalk" style="width : 800px; height : 700px;"></div>
+    </div>
+    <div>
+        <label for="Particles">number of particles:</label>
+        <input type="number" name="Particles" id="particleCount" value="1">
+        <br>
+        <label for="Steps">number of steps:</label>
+        <input type="number" name="Steps" id="stepCountInput" value="100">  
+    </div>
+    <div>
+        <button onclick="restart()">Restart</button>
+    </div>
+    <script src="js/pages/random_walk.js"></script>
+
+</body>
+<h2> Random Walk</h2>
+The random walk can be mathematically modeled using random variables. Let an idealized point particle travelling in two dimensions be a distance \(X_n\) from the origin after n time steps. Every time step, we add a vector \((S \cos(\theta_i), S \sin(\theta_i))\) to its position vector, which starts at \((0,0)\). Here, S is the fixed distance travelled every step and \(\theta_i\) is a random angle between the horizontal axis and the direction of motion at the fith step. Our aim is to find the expectation of \(X_n\). \(X_n\) can be computed by finding the magnitude of the position vector:
+
+\[X_n = \lvert (S \cos(\theta_1), S \sin(\theta_1)) + (S \cos(\theta_2), S \sin(\theta_2)) +  ... + (S \cos(\theta_n), S \sin(\theta_n))\rvert\]
+\[= S\sqrt{(\cos(\theta_1)+ ... + \cos(\theta_n))^2 + (\sin(\theta_1)+ ... + \sin(\theta_n))^2}\]
+
+Note that graphically \(E(\cos(\theta_i))\) and \(E(\sin(\theta_i))\) are both zero since they have zero signed area underneath them from \(0\) to \(2 \pi\).
+\[E(\cos^2(\theta_i)) = 1/2\pi\int_{0}^{2\pi} \cos^2(\theta_i)\, d\theta_i = 1/4\pi\int_{0}^{2\pi} \cos(2\theta_i)\ + 1d\theta_i = 1/2 \]
+\[E(\sin^2(\theta_i)) = 1/2\pi\int_{0}^{2\pi} \sin^2(\theta_i)\, d\theta_i = 1/4\pi\int_{0}^{2\pi} -\cos(2\theta_i)\ + 1d\theta_i = 1/2\]
+
+The square of the sum in the expression for \(X_n\) equals a sum of the squares of cosines and sines assuming that the random angle at each step is independent of the random angles at other steps. This gives:
+
+\[ E(X_n^2) = E(S^2((\cos(\theta_1)+ ... + \cos(\theta_n))^2 + ((\sin(\theta_1)+ ... + \sin(\theta_n)^2) \] 
+\[ E(X_n^2) = E(S^2((\cos(\theta_1)+ ... + \cos(\theta_n))^2 + ((\sin(\theta_1)+ ... + \sin(\theta_n)^2) \] 
+\[ E(X_n^2) = E(S\sqrt{\cos(\theta_1)+ ... + \cos(\theta_n))^2 + ((\sin(\theta_1)+ ... + \sin(\theta_n)^2}) \] 
+\[= E(S^2\cos^2(\theta_1)+ ... + \cos^2(\theta_n) + \sin^2(\theta_1)+ ... + \sin^2(\theta_n))\]
+\[ = S^2(1/2 + 1/2 .... +1/2) = S^2n \]
+
+Thus we obtain the root mean square of the distance travelled after n steps of length S as \(S\sqrt{n}\)
+
+</html>

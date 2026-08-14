@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Electron Diffraction</title>
+
+    <script src="https://cdn.plot.ly/plotly-3.7.0.min.js" charset="utf-8"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <script src="js/shared/utils.js"></script>
+    <link rel="stylesheet" href="css/shared.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li style="float: left;" id="home"><a href="index.html">home</a></li>
+            <li><a href="random_walk.html">1<span class="title">random walk</span></a></li>
+            <li><a href="brownian_motion.html">2<span class="title">brownian motion</span></a></li>
+            <li><a href="black_body_spectra.html">3<span class="title">black body spectra</span></a></li>
+            <li><a href="photoelectric_effect.html">4<span class="title">photoelectric effect</span></a></li>
+            <li><a href="hydrogen_emmision_spectra.html">5<span class="title">hydrogen emission spectra</span></a></li>
+            <li><a href="electron_diffraction.html" class="active">6<span class="title">electron diffraction</span></a>
+            </li>
+            <li><a href="particle_in_a_box.html">7<span class="title">particle in a box</span></a></li>
+            <li><a href="quantum_cryptography.html">8<span class="title">quantum cryptography</span></a></li>
+            <li><a href="compton_scattering.html">9<span class="title">compton scattering</span></a></li>
+            <li><a href="hydrogen_orbitals.html">10<span class="title">hydrogen orbitals</span></a></li>
+            <li style="float: right;" id="about"><a href="extra.html">extra</a></li>
+        </ul>
+    </div>
+    <h1>Electron Diffraction</h1>
+    <div style="width: 100%; height: 100%;">
+        <div id="plot"></div>
+        <div id="plot2"></div>
+        <div id="rings"></div>
+        <div id="V_vs_sin_phi"></div>
+    </div>
+
+    <script src="js/pages/electron_diffraction.js"></script>
+    <br>
+    <br>
+    <br>
+
+
+
+    <h2>Electron Diffraction</h2>
+    <p>
+        In the electron diffraction experiment, electrons are emitted via thermionic emission from a current carrying
+        wire and are incident on a crystal, for example graphite. The aim is to determine the atomic spacing by
+        analysing the circles of constructive intereference seen on a phosphor screen due to the diffracted electrons.
+
+        If the electrons are accelerated through a potential $V$ the conservation of energy gives:
+
+        \[eV = \frac{1}{2}mv^2\]
+        De-Broglie's formula for the wavelength of a 'matter wave' used to model the wave-like behavior of particles is:
+
+        \[p = \frac{h}{\lambda}\]
+        Thus since \(p = mv\) by definition the electron's 'wavelength' is:
+        \[\lambda = \frac{h}{\sqrt{2meV}}\]
+        Bragg's law relates this wavelength to the atomic spacing \(d\). If waves are incident at angle \(\theta\) to
+        atoms in a grid along the horizontal the path difference is \(2d\sin \theta\) and the condition for constructive
+        interference is:
+
+        \[2d\sin\theta = n\lambda\]
+        where \(n\) is any integer.
+        Since the electrons are incident along the horizontal in the electron diffraction experiment, they will be an
+        angle \(\phi = 2\theta\) when diffracted towards the rings of constructive interference, an angle that can
+        easily be measured by measuring \(\tan\phi\) using a vernier caliper or on an image. Thus the atomic spacing can
+        be calculated from:
+
+        \[d = \frac{nh\ }{2\sqrt{2meV} \sin \frac{\phi}{2}}
+
+
+    </p>
+</body>
+
+</html>

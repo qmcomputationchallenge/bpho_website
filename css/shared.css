@@ -1,0 +1,82 @@
+h2,
+h3 {
+    display: block;
+    margin: 16px 0 8px;
+    font-family: sans-serif;
+    border-top: 3px solid #006271;
+    color: #006271;
+}
+
+h1 {
+    display: block;
+    margin: 7px 7px;
+    text-align: center;
+    font-family: sans-serif;
+    color: #006271;
+}
+
+h4 {
+    display: block;
+    margin: 8px 0 16px;
+    font-family: sans-serif;
+    color: #006271;
+}
+
+h2,
+p {
+    margin: 10px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #4a5861;
+
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar #home a,
+.navbar #about a {
+    padding: 5px 10px;
+}
+
+.navbar li a {
+    padding: 5px 4px;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+.navbar li a:hover {
+    background-color: rgb(61, 61, 61);
+}
+
+
+.navbar li a .title {
+    max-width: 0;
+    opacity: 0;
+    margin-left: 0;
+    overflow: hidden;
+    transition: max-width 0.35s ease, opacity 0.25s ease, margin-left 0.35s ease;
+    display: inline-block;
+}
+
+.navbar li a:hover .title {
+    max-width: 250px;
+    opacity: 1;
+    margin-left: 8px;
+}
+
+.navbar ul li a.active {
+  background-color: #627683;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quantum Cryptography</title>
+
+    <script src="https://cdn.plot.ly/plotly-3.7.0.min.js" charset="utf-8"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <script src="js/shared/utils.js"></script>
+    <link rel="stylesheet" href="css/shared.css">
+    <style>
+        #plots-container {
+            text-align: center;
+
+        }
+
+        .plot-container-child {
+            display: inline-block;
+            width: 400px;
+            height: 400px;
+            margin: 0.5em;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li style="float: left;" id="home"><a href="index.html">home</a></li>
+            <li><a href="random_walk.html">1<span class="title">random walk</span></a></li>
+            <li><a href="brownian_motion.html">2<span class="title">brownian motion</span></a></li>
+            <li><a href="black_body_spectra.html">3<span class="title">black body spectra</span></a></li>
+            <li><a href="photoelectric_effect.html">4<span class="title">photoelectric effect</span></a></li>
+            <li><a href="hydrogen_emmision_spectra.html">5<span class="title">hydrogen emission spectra</span></a></li>
+            <li><a href="electron_diffraction.html">6<span class="title">electron diffraction</span></a></li>
+            <li><a href="particle_in_a_box.html">7<span class="title">particle in a box</span></a></li>
+            <li><a href="quantum_cryptography.html" class="active">8<span class="title">quantum cryptography</span></a></li>
+            <li><a href="compton_scattering.html">9<span class="title">compton scattering</span></a></li>
+            <li><a href="hydrogen_orbitals.html">10<span class="title">hydrogen orbitals</span></a></li>
+            <li style="float: right;" id="about"><a href="extra.html">extra</a></li>
+        </ul>
+    </div>
+    <h1>Quantum Cryptography</h1>
+
+    <div id="plots-container">
+        <div class="plot plot-container-child">
+            <div id="classical"></div>
+        </div>
+        <div class="plot plot-container-child">
+            <div id="quantum"></div>
+        </div>
+        <div class=" plot plot-container-child">
+            <div id="difference"></div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div style="text-align: center;">
+        <label for="theta">theta: <span id="thetaVal">0</span></label>
+        <label for="phi">phi: <span id="phiVal">0</span></label>
+        <br>
+        <input type="range" min=-90 max=90 value=0 step=1 class="theta" id="theta" />
+        <input type="range" min=-90 max=90 value=0 step=1 class="phi" id="phi" />
+        <br>
+        <label> classical: <span id="classicalVal"></span></label>
+        <label> quantum: <span id="quantumVal"></span></label>
+        <label> difference: <span id="differenceVal"></span></label>
+
+        <script src="js/pages/quantum_cryptography.js"></script>
+    </div>
+
+    <!-- EXPLANATION BELOW-->
+</body>
+<h2>Quantum Cryptography</h2>
+Here we will derive the formulas used to calculate the classical and quantum probabilites in these plots and in the
+visual calculator.
+\section{The Classical situation}
+Imagine two beams of entangled photons going into two detectors. One detector, A, is at angle \(\theta\) and the other,
+B, is at angle \(\phi\) to the horizontal. Modelling the photons as polarised either horizontally or vertically. Malus'
+law states that the probability of detector A measuring polarisation along the X axis is the square of the projection of
+the polarisation onto the direction of A.
+
+\[P(X_A) = \cos^2\theta \]
+A is aligned \(90- \theta\) to the vertical so:
+\[P(Y_A) = \cos^2(90-\theta) = \sin^2 \theta\]
+A useful observable is the probability of detecting matching polarisations:
+\[P(X_A) P(X_B) + P(Y_A)P(Y_B) = \cos^2\theta\cos^2\phi + \sin^2\theta\sin^2\phi\]
+and of detecting mismatching ones:
+\[1-\cos^2\theta\cos^2\phi - \sin^2\theta\sin^2\phi\]
+\section{The Quantum one}
+
+One element of the copenhagen interpretation of quantum mechanics is that the wavefunction can be written as a sum of
+the eigenstates corresponding to all possible outcomes of a measurement and 'collapses' into one of them after a
+measurement occurs. This is interesting since the schrodinger equation does not seem to describe any collapse. For our
+purposes, however, the copenhagen interpretation implies that measuring one photon's polarisation and then the others is
+not independent since in between the two photon state collapses due to the first measurement. Thus:
+
+\[ P(X_A,X_B) = \cos^2\theta\cos^2(\phi-\theta)\]
+where we have replaced what would be \(\cos\phi\) in the classical case with \(\cos(\phi - \theta)\) since the
+wavefunction has collapsed so that polarisation is along the \(X_A\) direction, which is an angle \(\phi - \theta\) from
+\(X_B\). Noting that \(Y_A\) is also \(\phi - \theta\) from \(Y_B\) we have:
+\[ P(Y_A,Y_B) = \sin^2\theta\cos^2(\phi - \theta)\]
+But now the probability of observing matching polarisations is simply:
+
+\[P(X_A,X_B) + P(Y_A,Y_B) = \cos^2(\phi-\theta)(\cos^2\theta+\sin^2 \theta) = \cos^2(\phi-\theta) \]
+Making the probability of mismatching ones:
+\[1-\cos^2(\phi-\theta)\]
+You may have worried that we chose for it to be measured by detector \(A\) first, even though we want to do a
+calculation for measurement by \(A\) and \(B\) simultaneously. Since \(\cos(-x) = \cos(x) \), the probability of
+matching (and thus also mismatching) polarisations is the same as if we swap \(\phi\) and \(\theta\) meaning we could
+have assumed it was measured by B first and the probability would come out the same.
+
+<h2>Stern Gerlach Machines</h2>
+
+
+</html>

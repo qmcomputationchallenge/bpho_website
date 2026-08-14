@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Photoelectric Effect Simulation</title>
+    <link rel="stylesheet" href="css/shared.css">
+</head>
+
+<body>
+    <div class="canvas">
+        <canvas id="sim" width="1000" height="420"></canvas>
+    </div>
+    <div class="input">
+        <label>Wavelength <span class="val" id="wavelengthVal">400 nm</span></label>
+        <input type="range" id="wavelength" min="100" max="800" step="1" value="400">
+    </div>
+    <div class="input">
+        <label>Intensity <span class="val" id="intensityVal">50%</span></label>
+        <input type="range" id="intensity" min="0" max="100" step="1" value="50">
+    </div>
+    <div class="input">
+        <label>Target Material</label>
+        <select id="material"></select>
+    </div>
+    <div class = "input">
+        <label>Voltage <span class = "val", id = "voltageVal">0</span></label>
+        <br>    
+        <input type = "range" id = "voltage" min = "-5" max = "5" step = "0.05" value = "0">
+    </div>
+
+    <div class="output">
+        <p>Photon Energy:</p>
+        <span id="photonEnergy">-</span>
+    </div>
+
+    <div class="output">
+        <p>Work Function:</p>
+        <span id="workFunction">-</span>
+    </div>
+
+    <div class="output">
+        <p>Stopping Voltage:</p>
+        <span id="stoppingVoltage">-</span>
+    </div>
+    <div class="output">
+        <p>current (pA)</p>
+        <span id="current">-</span>
+    </div>
+    <script src="js/pages/simulation.js"></script>
+    <footer>
+        <a href="photoelectric_effect.html" style="display: block; text-align: center;">Main Page</a>
+    </footer>
+</body>
+
+</html>

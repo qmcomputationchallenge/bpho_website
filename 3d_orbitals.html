@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>3D Hydrogenic Orbitals</title>
+    <script src="https://cdn.plot.ly/plotly-3.5.1.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="css/3d_orbitals.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div>
+            <label for="nInput">prinjciple (n):</label>
+            <input type="number" id="nInput" min="1" max="10">
+        </div>
+        <div>
+            <label for="lInput">angular (l):</label>
+            <input type="number" id="lInput" min="0" max="9">
+        </div>
+        <div>
+            <label for="mInput">magnetic (m):</label>
+            <input type="number" id="mInput" min="-9" max="9">
+        </div>
+        <div>
+            <label for="targetPoints">target points: <span id="targetPointsValue">-</span></label>
+            <input type="range" id="targetPoints" min="5000" max="100000" step="1000" value="50000">
+        </div>
+        <div id="errors"></div>
+
+        <footer>
+            <a href="hydrogen_orbitals.html">Hydrogen Orbitals Main Page</a>
+            <a href="2d_hydrogen_orbital.html">2D Hydrogenic Orbital Plots</a>
+        </footer>
+    </div>
+
+    <div class="plot-area">
+        <div id="orbital3dPlot"></div>
+    </div>
+
+    <script src="js/pages/3d_orbitals.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Compton Scattering</title>
+
+    <script src="https://cdn.plot.ly/plotly-3.7.0.min.js" charset="utf-8"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <script src="js/shared/utils.js"></script>
+    <link rel="stylesheet" href="css/shared.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li style="float: left;" id="home"><a href="index.html">home</a></li>
+            <li><a href="random_walk.html">1<span class="title">random walk</span></a></li>
+            <li><a href="brownian_motion.html">2<span class="title">brownian motion</span></a></li>
+            <li><a href="black_body_spectra.html">3<span class="title">black body spectra</span></a></li>
+            <li><a href="photoelectric_effect.html">4<span class="title">photoelectric effect</span></a></li>
+            <li><a href="hydrogen_emmision_spectra.html">5<span class="title">hydrogen emission spectra</span></a></li>
+            <li><a href="electron_diffraction.html">6<span class="title">electron diffraction</span></a></li>
+            <li><a href="particle_in_a_box.html">7<span class="title">particle in a box</span></a></li>
+            <li><a href="quantum_cryptography.html">8<span class="title">quantum cryptography</span></a></li>
+            <li><a href="compton_scattering.html" class="active">9<span class="title">compton scattering</span></a></li>
+            <li><a href="hydrogen_orbitals.html">10<span class="title">hydrogen orbitals</span></a></li>
+            <li style="float: right;" id="about"><a href="extra.html">extra</a></li>
+        </ul>
+    </div>
+    <h1>Compton Scattering</h1>
+    <div id="chart"></div>
+    <div id="chart2"></div>
+    <div id="chart3"></div>
+    <script src="js/pages/compton_scattering.js"></script>
+    <br>
+    <br>
+    <br>
+
+
+    <h2>Compton Scattering</h2>
+
+    Compton scattering is the scattering of photons off electrons. Let the photon be incident along the horizontal with wavelength \(\lambda\) and scatter off at an angle \(\theta\) above the horizontal with a new wavelength \(\lambda'\) with the previously stationary electron scattered at speed v at angle \(\phi\) below the horizontal. Our aim is to compute \(\lambda'\), \(v\) and \(\phi\) given \(\lambda\) and \(\theta\). To conserve energy and momentum we must first relate them to wavelength. We need Planck's formula:
+
+\[E = hf = \frac{hc}{\lambda}\]
+
+Since the photon moves at \(c\), unfortunately, we cannot use Newton's laws like for billiard ball scattering but require special relativity. One helpful formula is the energy momentum invariant: \(E^2 - p^2c^4= m^2c^2 \) which is, well, invariant. Another is the formula for total energy: \(E = \gamma mc^2\) and total momentum: \(p = \gamma mv\) \(\gamma = \frac{1}{1-\frac{v^2}{c^2}}\) is the lorentz factor. From here on out we will set c = 1 to make the equations look nicer and will reinsert it at the end by matching dimensions.
+
+We can actually derive the planck formula using the energy momentum invariant and de-Broglie's formula for a photon's momentum \(p = \frac{h}{\lambda}\). Photon mass is zero so:
+
+ \[E = pc =   \frac{hc}{ \lambda} = hf\]
+
+ This seems fitting since de-Broglie's formula explicitly links a particle like concept: momentum, to a wave-like one: wavelength and Compton scattering highlights this since light scatters like a particle but also experiences a wavelength shift.
+
+Call the photon's momentum before the collision \(p\) and after \(p'\), with the electron momentum before being zero and \(p_e\) after. The cosine rule gives:
+
+\[p_e^2 = p^2+p'^2-2p p' \cos\theta\]
+
+ Now for energy and momentum. The electron's energy momentum invariant is:
+
+ \[m^2 = E^2 - p_e^2\]
+  \[=  \frac{m^2}{1-v^2} - p_e^2\]
+
+where we have used the formula for total energy and \(m = m_e\)\, the electron's mass.
+Conserving energy gives:
+
+ \[m_e +  \frac{h}{ \lambda} = \frac{h}{ \lambda'}  + E\]
+
+ When c = 1 the photon's energy and momentum are conveniently the same.
+  \[m_e +  p= p' + E\]
+
+Now we have some equations. It is very easy to go round in circles subbing in different things and eliminating others. First let's try get the shift in wavelength \(\Delta \lambda = \lambda'-\lambda\) and so eliminate \(v\) and then \(p_e\). Subbing energy conservation into the electron's energy momentum invariant:
+\[m^2 = (m +p - p')^2 - p_e^2 \]
+\[p_e^2 = (p-p')^2 +2m(p-p')\]
+Equating this to the original expression we had for \(p_e^2\) gets rid of \(p_e\).
+
+\[p^2+p'^2-2p p' \cos\theta = (p-p')^2 +2m(p-p')\]
+\[2m(\frac{h}{\lambda} - \frac{h}{\lambda'}) +2(1-\cos\theta)\frac{h^2}{\lambda \lambda'}=0\]
+\[\frac{h(1-\cos\theta)}{m} = \lambda \lambda' (\frac{1}{\lambda} - \frac{1}{\lambda'}) = \Delta\lambda\]
+
+This is a crucial result so we will return the speed of light to make it SI. Planck's constant has dimensions of energy time: \(ML^2T^{-1}\) and so if we divide it by \(mc\) the result will have units  \( M^{1-1}L^{2-1}T^{-1+1} = L\) as required for a wavelength.
+
+\[\Delta \lambda = \frac{h(1-\cos\theta)}{mc} \]
+This means we now know
+\[\lambda' = \lambda + \frac{h(1-\cos\theta)}{mc} \]
+Now to find \(\phi\). The sine rule gives:
+
+\[p_e\sin\phi = p'\sin\theta\]
+\[\tan\phi = \frac{\sin \phi}{\sqrt{1 - \sin^2\phi}} \]
+\[= \sin\theta\frac{p'}{\sqrt{p_e^2- p'^2\sin^2\theta}}\]
+note 
+\[\frac{p_e}{p'} =\sqrt{\frac{p^2}{p'^2} +2(m-1)\frac{p}{p'} +1}\] 
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Brownian Motion</title>
+
+    <script src="https://cdn.plot.ly/plotly-3.7.0.min.js" charset="utf-8"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+    <script src="js/shared/utils.js"></script>
+    <link rel="stylesheet" href="css/shared.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <ul>
+            <li style="float: left;" id="home"><a href="index.html">home</a></li>
+            <li><a href="random_walk.html">1<span class="title">random walk</span></a></li>
+            <li><a href="brownian_motion.html" class="active">2<span class="title">brownian motion</span></a></li>
+            <li><a href="black_body_spectra.html">3<span class="title">black body spectra</span></a></li>
+            <li><a href="photoelectric_effect.html">4<span class="title">photoelectric effect</span></a></li>
+            <li><a href="hydrogen_emmision_spectra.html">5<span class="title">hydrogen emission spectra</span></a></li>
+            <li><a href="electron_diffraction.html">6<span class="title">electron diffraction</span></a></li>
+            <li><a href="particle_in_a_box.html">7<span class="title">particle in a box</span></a></li>
+            <li><a href="quantum_cryptography.html">8<span class="title">quantum cryptography</span></a></li>
+            <li><a href="compton_scattering.html">9<span class="title">compton scattering</span></a></li>
+            <li><a href="hydrogen_orbitals.html">10<span class="title">hydrogen orbitals</span></a></li>
+            <li style="float: right;" id="about"><a href="extra.html">extra</a></li>
+        </ul>
+    </div>
+    <h1>Brownian Motion</h1>
+
+    <div style="width: 70%; height: 70%;">
+        <div id="brownianMotion"></div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <label for="Particles">number of particles:</label>
+    <input type="number" name="Particles" id="particleCount" value="50">
+    <button onclick="restart()">Restart</button>
+    <script src="js/pages/brownian_motion.js"></script>
+    <h2>Brownian Motion</h2>
+    <p>In our treatment of the random walk we learnt:
+
+\[\langle x_S^2 \rangle = S^2n\]
+
+where S is the step length, n the number of steps and \(\langle x_s^2 \rangle\) the average displacement squared, working in only one dimension for now. We want to model brownian motion - the random motion of particles due to collisions with the molecules of the surrounding liquid or gas. The number of steps is proportional to the time taken so:
+
+\[\langle x_S^2 \rangle = \alpha t\]
+
+for some constant \(\alpha\)\, we want to find the value of. The random forces on the particle due to brownian motion \(F_x\)\, will cause acceleration but will also have a drag force against them due to other collisions when the particle we consider moves through the medium. We will model the drag as proportional to \(v\) or \(\frac{dx}{dt}\) so:
+
+\[F_x = m\frac{d^2x}{dt^2} + \mu \frac{dx}{dt}\]
+
+\(\mu\)\, is readily determined experimentally, for example it could be done for a skydiver falling through the air by drawing their velocity-time graph and dividing their terminal velocity by their weight. Since there are derivatives we will first find \(\langle \frac{dx^2}{dt} \rangle\) and integrate it to get \(\langle x^2 \rangle\). Note that the average kinetic energy is proportional to temperature:
+
+\[\langle \frac{1}{2}m(\frac{dx}{dt})^2 \rangle = \frac{kT}{2}\]
+
+k is Boltzmann's constant. The chain rule for differentiation implies:
+
+\[\langle \frac{dx^2}{dt} \rangle = \langle 2x\frac{dx}{dt} \rangle \]
+
+We need to look for a position times velocity in our original force equation. Averaging both sides of the equation times \(x)\:
+
+\[\langle xF_x \rangle = m\langle x\frac{d^2x}{dt^2}\rangle + \mu \langle x\frac{dx}{dt}\rangle\]
+
+Here is the sneaky part. The product rule for differentiation means we can write that:
+
+\[x\frac{d^2x}{dt^2} = \frac{d}{dt}(x\frac{dx}{dt}) - (\frac{dx}{dt})^2 \]
+
+
+so since \(\langle xF_x \rangle = 0)\ because the force is random 
+\[\langle\frac{d}{dt}(x\frac{dx}{dt})\rangle - \langle(\frac{dx}{dt})^2\rangle = -\frac{\mu}{m}\langle x\frac{dx}{dt}\rangle \]
+
+but
+
+\[\langle (\frac{dx}{dt})^2 \rangle =\frac{ kT}{m}\]
+we can argue \(\langle\frac{d}{dt}(x\frac{dx}{dt})\rangle)\ must be zero since position and velocity are not time dependent, they are random at all times. This gives:
+
+\\\[\mu\langle x\frac{dx}{dt}\rangle = 2kT\]
+\[\langle \frac{dx^2}{dt} \rangle = \frac{2kT}{\mu}\]
+and finally:
+\[\langle x^2\rangle = \frac{2kTt}{\mu}\]
+In three dimensions randomness means 
+\[\langle x^2\rangle=\langle y^2\rangle=\langle z^2\rangle\]
+and so \[\langle R^2\rangle = 3\langle x^2 \rangle = \frac{6kTt}{\mu}\]
+</p>
+
+</body>
+
+</html>

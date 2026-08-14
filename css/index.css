@@ -1,0 +1,34 @@
+#simlist {
+  text-align: center;
+}
+
+#simlist a {
+    text-align: center;
+    display: inline-block;
+    margin: 0.5em;
+    font-size: 80%;
+    text-decoration: none;
+    padding: 1px;
+    color: #00f;
+}
+
+#simlist a:link {
+    color: #00f;
+}
+
+#simlist a:visited {
+    color: #60c;
+}
+
+#simlist a:hover,
+#simlist a:focus {
+    border: 1px solid #99f;
+    padding: 0px;
+    color: #99f;
+}
+
+#simlist a:active {
+    border: 1px solid #f00;
+    padding: 0px;
+    color: #f00;
+}
