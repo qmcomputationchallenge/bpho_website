@@ -317,7 +317,6 @@ function playAnimation(simulation) {
             x: [[bigPt.x]],
             y: [[bigPt.y]]
         }, [2]);
-        console.log("frame", step);
         step++;
 
         animationId = requestAnimationFrame(frame);
